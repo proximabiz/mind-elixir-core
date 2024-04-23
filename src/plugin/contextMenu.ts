@@ -43,7 +43,7 @@ export default function (mind: MindElixirInstance, option: any) {
   }
   menuUl.appendChild(up)
   menuUl.appendChild(down)
-  menuUl.appendChild(summary)
+  // menuUl.appendChild(summary)
   if (!option || option.link) {
     menuUl.appendChild(link)
   }
