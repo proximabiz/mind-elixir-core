@@ -1,15 +1,16 @@
 .search-input{
     position: absolute;
-    top: 1rem;
+    top: 5rem;
     right: 30px;
     border: 1px solid black;
     padding: 8px 30px 8px 10px;
     border-radius: 4px;
     font-size: 14px;
 }
-.close-button{ cursor: pointer;
+.close-button{
+    cursor: pointer;
     position: absolute;
     right: 8px;
-    top:18px;
+    top:5.2rem;
     color: gray;
 }
