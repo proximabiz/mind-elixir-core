@@ -16,12 +16,14 @@ function createToolBarRBContainer(mind: MindElixirInstance) {
   const gc = createButton('toCenter', 'living')
   const zo = createButton('zoomout', 'move')
   const zi = createButton('zoomin', 'add')
+  const sn = createButton('searchNode', 'search')
   const percentage = document.createElement('span')
   percentage.innerText = '100%'
   toolBarRBContainer.appendChild(fc)
   toolBarRBContainer.appendChild(gc)
   toolBarRBContainer.appendChild(zo)
   toolBarRBContainer.appendChild(zi)
+  toolBarRBContainer.appendChild(sn)
   // toolBarRBContainer.appendChild(percentage)
   toolBarRBContainer.className = 'mind-elixir-toolbar rb'
   fc.onclick = () => {
@@ -38,8 +40,13 @@ function createToolBarRBContainer(mind: MindElixirInstance) {
     if (mind.scaleVal > 1.6) return
     mind.scale((mind.scaleVal += 0.2))
   }
+  sn.onclick = () => {
+    mind.search()
+  }
+
   return toolBarRBContainer
 }
+
 function createToolBarLTContainer(mind: MindElixirInstance) {
   const toolBarLTContainer = document.createElement('div')
   const l = createButton('tbltl', 'left')

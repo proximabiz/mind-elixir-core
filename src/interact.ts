@@ -174,6 +174,57 @@ export const toCenter = function (this: MindElixirInstance) {
   this.container.scrollTo(10000 - this.container.offsetWidth / 2, 10000 - this.container.offsetHeight / 2)
 }
 
+export const search = function (this: MindElixirInstance) {
+  const searchInput = document.createElement('input')
+  searchInput.setAttribute('id', 'afm-node-search')
+  searchInput.type = 'text'
+  searchInput.placeholder = 'Search node...'
+  searchInput.classList.add('search-input')
+
+  const closeButton = document.createElement('span')
+  closeButton.setAttribute('id', 'afm-close-button')
+  closeButton.classList.add('close-button')
+  closeButton.innerHTML = `
+  <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+  </svg>
+`
+  this.container.appendChild(closeButton)
+  this.container.appendChild(searchInput)
+
+  // Add event listener for the input field
+  searchInput.addEventListener('input', event => {
+    const query = (event.target as HTMLInputElement).value.toLowerCase()
+
+    const texts = this.container.querySelectorAll('.text')
+
+    texts.forEach(text => {
+      console.log(text)
+      const element = text as HTMLElement
+      const nodeText = text.textContent || ''
+
+      // Clear previous highlights
+      element.style.backgroundColor = ''
+
+      if (nodeText.toLowerCase().includes(query) && query) {
+        element.style.backgroundColor = 'lightgreen'
+      }
+    })
+  })
+
+  // Add event listener to close the search input and icon
+  closeButton.addEventListener('click', () => {
+    searchInput.remove()
+    closeButton.remove()
+
+    // Optionally, clear any highlights when closing
+    const texts = this.container.querySelectorAll('.text')
+    texts.forEach(text => {
+      const element = text as HTMLElement
+      element.style.backgroundColor = ''
+    })
+  })
+}
 /**
  * @function
  * @instance
