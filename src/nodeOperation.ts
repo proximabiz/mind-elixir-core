@@ -218,6 +218,38 @@ export const removeNode = function (this: MindElixirInstance, el?: Topic) {
   })
 }
 
+export const expandNodeSubtree = function (this: MindElixirInstance, el?: Topic) {
+  const nodeEle = el || this.currentNode
+  if (!nodeEle) return
+
+  const expandRecursively = (node: Topic) => {
+    const nodeObj = node.nodeObj
+
+    console.log('nodeObj----', nodeObj)
+
+    // If the node is not already expanded, expand it
+    if (!nodeObj.expanded) {
+      this.expandNode(node, true)
+    }
+
+    // Recursively expand child nodes if they exist
+    if (nodeObj.children) {
+      nodeObj.children.forEach(child => {
+        const childNode = findEle(child.id) as Topic
+        if (childNode) expandRecursively(childNode)
+      })
+    }
+  }
+
+  expandRecursively(nodeEle)
+
+  this.linkDiv() // Refresh connections
+  this.bus.fire('operation', {
+    name: 'expandSubtree',
+    obj: nodeEle.nodeObj,
+  })
+}
+
 export const removeNodes = function (this: MindElixirInstance, tpcs: Topic[]) {
   tpcs = unionTopics(tpcs)
   for (const tpc of tpcs) {

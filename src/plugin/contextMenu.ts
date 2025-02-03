@@ -30,6 +30,7 @@ export default function (mind: MindElixirInstance, option: any) {
   const down = createLi('cm-down', lang.moveDown, 'Pgdn')
   const link = createLi('cm-down', lang.link, '')
   const summary = createLi('cm-down', lang.summary, '')
+  const expand_subtree = createLi('cm-expand_subtree', lang.expandSubtree, '') // Added expand_subtree menu item
 
   const menuUl = document.createElement('ul')
   menuUl.className = 'menu-list'
@@ -44,6 +45,7 @@ export default function (mind: MindElixirInstance, option: any) {
   menuUl.appendChild(up)
   menuUl.appendChild(down)
   // menuUl.appendChild(summary)
+  menuUl.appendChild(expand_subtree) // Append the expand_subtree option
   if (!option || option.link) {
     menuUl.appendChild(link)
   }
@@ -67,7 +69,6 @@ export default function (mind: MindElixirInstance, option: any) {
   mind.container.oncontextmenu = function (e) {
     e.preventDefault()
     if (!mind.editable) return
-    // console.log(e.pageY, e.screenY, e.clientY)
     const target = e.target as HTMLElement
     if (isTopic(target)) {
       if (target.parentElement.tagName === 'ME-ROOT') {
@@ -82,6 +83,7 @@ export default function (mind: MindElixirInstance, option: any) {
         add_parent.className = 'disabled'
         add_sibling.className = 'disabled'
         remove_child.className = 'disabled'
+        expand_subtree.className = 'disabled' // Disable expand_subtree for root
       } else {
         focus.className = ''
         up.className = ''
@@ -89,6 +91,7 @@ export default function (mind: MindElixirInstance, option: any) {
         add_parent.className = ''
         add_sibling.className = ''
         remove_child.className = ''
+        expand_subtree.className = '' // Enable expand_subtree for non-root nodes
       }
       if (!mind.currentNodes) mind.selectNode(target)
       menuContainer.hidden = false
@@ -188,6 +191,11 @@ export default function (mind: MindElixirInstance, option: any) {
         once: true,
       }
     )
+  }
+  expand_subtree.onclick = () => {
+    if (isRoot) return
+    mind.expandNodeSubtree(mind.currentNode as Topic) // Call the expandNodeSubtree method
+    menuContainer.hidden = true
   }
   summary.onclick = () => {
     menuContainer.hidden = true
