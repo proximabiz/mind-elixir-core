@@ -194,7 +194,7 @@ export default function (mind: MindElixirInstance, option: any) {
   }
   expand_subtree.onclick = () => {
     if (isRoot) return
-    mind.expandNodeSubtree(mind.currentNode as Topic) // Call the expandNodeSubtree method
+    mind.expandSubtree(mind.currentNode as Topic) // Call the expandNodeSubtree method
     menuContainer.hidden = true
   }
   summary.onclick = () => {

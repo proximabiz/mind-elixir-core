@@ -218,7 +218,7 @@ export const removeNode = function (this: MindElixirInstance, el?: Topic) {
   })
 }
 
-export const expandNodeSubtree = function (this: MindElixirInstance, el?: Topic) {
+export const expandSubtree = function (this: MindElixirInstance, el?: Topic) {
   const nodeEle = el || this.currentNode
   if (!nodeEle) return
 
