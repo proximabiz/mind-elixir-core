@@ -34,6 +34,7 @@ declare namespace MindElixir {
         moveUpNode: (this: MindElixirInstance, el?: import("./types/dom").Topic | undefined) => Promise<void>;
         moveDownNode: (this: MindElixirInstance, el?: import("./types/dom").Topic | undefined) => Promise<void>;
         removeNode: (this: MindElixirInstance, el?: import("./types/dom").Topic | undefined) => Promise<void>;
+        expandNodeSubtree: (this: MindElixirInstance, el?: import("./types/dom").Topic | undefined) => Promise<void>;
         removeNodes: (this: MindElixirInstance, tpcs: import("./types/dom").Topic[]) => Promise<void>;
         moveNodeIn: (this: MindElixirInstance, from: import("./types/dom").Topic[], to: import("./types/dom").Topic) => Promise<void>;
         moveNodeBefore: (this: MindElixirInstance, from: import("./types/dom").Topic[], to: import("./types/dom").Topic) => Promise<void>;

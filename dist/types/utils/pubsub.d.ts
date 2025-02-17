@@ -2,7 +2,7 @@ import type { Arrow } from '../arrow';
 import type { Summary } from '../summary';
 import type { NodeObj } from '../types/index';
 type NodeOperation = {
-    name: 'moveNodeIn' | 'moveDownNode' | 'moveUpNode' | 'copyNode' | 'addChild' | 'insertParent' | 'insertBefore' | 'beginEdit';
+    name: 'moveNodeIn' | 'moveDownNode' | 'moveUpNode' | 'copyNode' | 'addChild' | 'insertParent' | 'insertBefore' | 'beginEdit' | 'expandSubtree';
     obj: NodeObj;
 } | {
     name: 'insertSibling';

@@ -10,6 +10,7 @@ type LangPack = {
     link: string;
     clickTips: string;
     summary: string;
+    expandSubtree: string;
 };
 declare const i18n: Record<string, LangPack>;
 export default i18n;

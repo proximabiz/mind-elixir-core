@@ -36,6 +36,7 @@ declare const methods: {
     moveUpNode: (this: MindElixirInstance, el?: import("./index").Topic | undefined) => Promise<void>;
     moveDownNode: (this: MindElixirInstance, el?: import("./index").Topic | undefined) => Promise<void>;
     removeNode: (this: MindElixirInstance, el?: import("./index").Topic | undefined) => Promise<void>;
+    expandNodeSubtree: (this: MindElixirInstance, el?: import("./index").Topic | undefined) => Promise<void>;
     removeNodes: (this: MindElixirInstance, tpcs: import("./index").Topic[]) => Promise<void>;
     moveNodeIn: (this: MindElixirInstance, from: import("./index").Topic[], to: import("./index").Topic) => Promise<void>;
     moveNodeBefore: (this: MindElixirInstance, from: import("./index").Topic[], to: import("./index").Topic) => Promise<void>;

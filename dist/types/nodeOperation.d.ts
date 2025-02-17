@@ -10,6 +10,7 @@ export declare const copyNodes: (this: MindElixirInstance, tpcs: Topic[], to: To
 export declare const moveUpNode: (this: MindElixirInstance, el?: Topic) => void;
 export declare const moveDownNode: (this: MindElixirInstance, el?: Topic) => void;
 export declare const removeNode: (this: MindElixirInstance, el?: Topic) => void;
+export declare const expandNodeSubtree: (this: MindElixirInstance, el?: Topic) => void;
 export declare const removeNodes: (this: MindElixirInstance, tpcs: Topic[]) => void;
 export declare const moveNodeIn: (this: MindElixirInstance, from: Topic[], to: Topic) => void;
 export declare const moveNodeBefore: (this: MindElixirInstance, from: Topic[], to: Topic) => void;
