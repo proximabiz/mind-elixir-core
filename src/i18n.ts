@@ -10,6 +10,7 @@ type LangPack = {
   link: string
   clickTips: string
   summary: string
+  expandSubtree: string
 }
 const cn = {
   addChild: '插入子节点',
@@ -23,6 +24,7 @@ const cn = {
   link: '连接',
   clickTips: '请点击目标节点',
   summary: '摘要',
+  expandSubtree: 'Expand Subtree',
 }
 const i18n: Record<string, LangPack> = {
   cn,
@@ -39,6 +41,7 @@ const i18n: Record<string, LangPack> = {
     link: '連接',
     clickTips: '請點擊目標節點',
     summary: '摘要',
+    expandSubtree: 'Expand Subtree',
   },
   en: {
     addChild: 'Add child',
@@ -52,6 +55,7 @@ const i18n: Record<string, LangPack> = {
     link: 'Link',
     clickTips: 'Please click the target node',
     summary: 'Summary',
+    expandSubtree: 'Expand Subtree',
   },
   ru: {
     addChild: 'Добавить дочерний элемент',
@@ -65,6 +69,7 @@ const i18n: Record<string, LangPack> = {
     link: 'Ссылка',
     clickTips: 'Пожалуйста, нажмите на целевой узел',
     summary: 'Описание',
+    expandSubtree: 'Expand Subtree',
   },
   ja: {
     addChild: '子ノードを追加する',
@@ -78,6 +83,7 @@ const i18n: Record<string, LangPack> = {
     link: 'コネクト',
     clickTips: 'ターゲットノードをクリックしてください',
     summary: '概要',
+    expandSubtree: 'Expand Subtree',
   },
   pt: {
     addChild: 'Adicionar item filho',
@@ -91,6 +97,7 @@ const i18n: Record<string, LangPack> = {
     link: 'Link',
     clickTips: 'Favor clicar no item alvo',
     summary: 'Resumo',
+    expandSubtree: 'Expand Subtree',
   },
 }
 

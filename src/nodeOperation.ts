@@ -218,6 +218,17 @@ export const removeNode = function (this: MindElixirInstance, el?: Topic) {
   })
 }
 
+export const expandNodeSubtree = function (this: MindElixirInstance, el?: Topic) {
+  const nodeEle = el || this.currentNode
+  if (!nodeEle) return
+
+  this.linkDiv()
+  this.bus.fire('operation', {
+    name: 'expandSubtree',
+    obj: nodeEle.nodeObj,
+  })
+}
+
 export const removeNodes = function (this: MindElixirInstance, tpcs: Topic[]) {
   tpcs = unionTopics(tpcs)
   for (const tpc of tpcs) {
