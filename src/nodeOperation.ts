@@ -225,8 +225,6 @@ export const expandSubtree = function (this: MindElixirInstance, el?: Topic) {
   const expandRecursively = (node: Topic) => {
     const nodeObj = node.nodeObj
 
-    console.log('nodeObj----', nodeObj)
-
     // If the node is not already expanded, expand it
     if (!nodeObj.expanded) {
       this.expandNode(node, true)
