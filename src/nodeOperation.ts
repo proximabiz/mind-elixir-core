@@ -222,26 +222,7 @@ export const expandNodeSubtree = function (this: MindElixirInstance, el?: Topic)
   const nodeEle = el || this.currentNode
   if (!nodeEle) return
 
-  const expandRecursively = (node: Topic) => {
-    const nodeObj = node.nodeObj
-
-    // If the node is not already expanded, expand it
-    if (!nodeObj.expanded) {
-      this.expandNode(node, true)
-    }
-
-    // Recursively expand child nodes if they exist
-    if (nodeObj.children) {
-      nodeObj.children.forEach(child => {
-        const childNode = findEle(child.id) as Topic
-        if (childNode) expandRecursively(childNode)
-      })
-    }
-  }
-
-  expandRecursively(nodeEle)
-
-  this.linkDiv() // Refresh connections
+  this.linkDiv()
   this.bus.fire('operation', {
     name: 'expandSubtree',
     obj: nodeEle.nodeObj,
